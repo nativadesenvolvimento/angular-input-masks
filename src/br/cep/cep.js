@@ -10,9 +10,7 @@ module.exports = maskFactory({
 	format: function(cleanValue) {
 		return (cepMask.apply(cleanValue) || '').replace(/[^0-9]$/, '');
 	},
-	validations: {
-		cep: function(value) {
-			return value.length === 8;
-		}
+	getModelValue: function(formattedValue) {
+		return formattedValue;
 	}
 });

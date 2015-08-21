@@ -23,15 +23,7 @@ module.exports = maskFactory({
 
 		return formatedValue.trim().replace(/[^0-9]$/, '');
 	},
-	getModelValue: function(formattedValue, originalModelType) {
-		var cleanValue = this.clearValue(formattedValue);
-
-		return originalModelType === 'number' ? parseInt(cleanValue) : cleanValue;
-	},
-	validations: {
-		brPhoneNumber: function(value) {
-			var valueLength = value && value.toString().length;
-			return valueLength === 10 || valueLength === 11;
-		}
+	getModelValue: function(formattedValue) {
+		return formattedValue;
 	}
 });

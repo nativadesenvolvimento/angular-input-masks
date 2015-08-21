@@ -1,5 +1,4 @@
 var StringMask = require('string-mask');
-var BrV = require('br-validations');
 var maskFactory = require('mask-factory');
 
 var cnpjPattern = new StringMask('00.000.000\/0000-00');
@@ -20,12 +19,7 @@ module.exports = maskFactory({
 
 		return formatedValue.trim().replace(/[^0-9]$/, '');
 	},
-	validations: {
-		cpf: function(value) {
-			return value.length > 11 || BrV.cpf.validate(value);
-		},
-		cnpj: function(value) {
-			return value.length <= 11 || BrV.cnpj.validate(value);
-		}
+	getModelValue: function(formattedValue) {
+		return formattedValue;
 	}
 });
